@@ -1,7 +1,7 @@
 <template>
   <div class="UploadSVG">
     <input type="file" class="file" @change="$emit('uploadFile', $event)" />
-    <button class="convert">Convert</button>
+    <button class="convert" @click="$emit('convertColor')">Convert</button>
     <button class="reset" @click="$emit('resetSVG')">Reset</button>
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 export default {
   name: "UploadSVG",
-  emits: ["uploadFile", "resetSVG"],
+  emits: ["uploadFile", "resetSVG", "convertColor"],
 };
 </script>
 
@@ -36,6 +36,8 @@ export default {
   justify-content: center;
   align-items: center;
   color: white;
+  font-size: 12px;
+  letter-spacing: 1px;
   font-weight: 600;
   position: absolute;
   top: 0;
@@ -57,6 +59,8 @@ export default {
   height: 100%;
   color: white;
   font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
 }
 .convert:hover {
   background-color: rgb(91, 91, 180);
@@ -69,7 +73,7 @@ export default {
   height: 100%;
   color: rgb(100, 100, 226);
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   letter-spacing: 1px;
 }
 .reset:hover {

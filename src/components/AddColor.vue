@@ -39,7 +39,7 @@ export default {
 <style scoped>
 .AddColor {
   height: 100%;
-  width: 30%;
+  width: 33%;
   padding: 5px;
   overflow-y: scroll;
 }

@@ -2,7 +2,7 @@
   <div class="Color">
     <div class="container">
       <div class="color-box" :style="{ backgroundColor: color.color }"></div>
-      <div class="color-name">{{ color.color }}</div>
+      <div class="color-name">{{ color.color.toUpperCase() }}</div>
     </div>
     <div class="delete" @click="$emit('deleteColor', color.id)">
       <span class="material-icons">
@@ -24,13 +24,14 @@ export default {
 
 <style scoped>
 .Color {
-  border: 1px solid rgb(218, 218, 218);
+  border: 1px solid rgb(187, 176, 176);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 2px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-size: 14px;
+  border-radius: 2px;
 }
 .container {
   display: flex;
@@ -42,6 +43,10 @@ export default {
 }
 .color-name {
   padding-left: 10px;
+  color: rgb(160, 159, 159);
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 .delete {
   height: 35px;
@@ -58,7 +63,7 @@ export default {
 }
 .material-icons {
   font-family: "Material Icons";
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
 }
 </style>

@@ -6,8 +6,8 @@
         :value="selectedColor"
         @input="$emit('changeColor', $event)"
       />
-      <div class="color-name" :style="{ color: selectedColor }">
-        {{ selectedColor }}
+      <div class="color-name">
+        {{ selectedColor.toUpperCase() }}
       </div>
     </div>
     <div class="add" @click="$emit('addColor')">
@@ -30,12 +30,15 @@ export default {
 
 <style scoped>
 .AddButton {
-  background: #eeeeee;
-  padding: 2px;
+  border: 1px solid #d6d3d3;
+  background-color: #eeeeee;
+  color: #701919;
+  padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 40px;
+  margin: 20px 0px;
 }
 .container {
   display: flex;
@@ -62,7 +65,7 @@ export default {
 .color-name {
   padding-left: 10px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 1px;
 }
 .add {
@@ -81,6 +84,7 @@ export default {
   background-color: rgb(92, 24, 202);
 }
 .material-icons {
+  font-size: 18px;
   font-family: "Material Icons";
   font-weight: 600;
 }

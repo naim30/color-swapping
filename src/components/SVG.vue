@@ -4,6 +4,7 @@
     <UploadSVG
       @uploadFile="$emit('uploadFile', $event)"
       @resetSVG="$emit('resetSVG')"
+      @convertColor="$emit('convertColor')"
     />
   </div>
 </template>
@@ -21,13 +22,13 @@ export default {
   props: {
     updatedSVG: String,
   },
-  emits: ["uploadFile"],
+  emits: ["uploadFile", "convertColor"],
 };
 </script>
 
 <style scoped>
 .SVG {
-  width: 70%;
+  width: 67%;
   height: 100%;
   display: flex;
   flex-direction: column;
