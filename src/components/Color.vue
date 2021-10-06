@@ -24,7 +24,7 @@ export default {
 
 <style scoped>
 .Color {
-  border: 1px solid rgb(187, 176, 176);
+  border: 1px solid rgb(209, 204, 204);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,7 +43,7 @@ export default {
 }
 .color-name {
   padding-left: 10px;
-  color: rgb(160, 159, 159);
+  color: rgb(129, 129, 129);
   font-size: 12px;
   letter-spacing: 1px;
   font-weight: 600;

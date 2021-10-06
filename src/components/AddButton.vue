@@ -30,14 +30,13 @@ export default {
 
 <style scoped>
 .AddButton {
-  border: 1px solid #d6d3d3;
+  /* border: 1px solid #d6d3d3; */
   background-color: #eeeeee;
   color: #701919;
   padding: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 40px;
   margin: 20px 0px;
 }
 .container {
@@ -67,6 +66,7 @@ export default {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
+  color: rgb(32, 32, 32);
 }
 .add {
   width: 35px;
