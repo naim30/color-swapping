@@ -175,23 +175,41 @@ export default {
             )
           );
         }
-        if (diffArr.length === 0) {
-          diffArr.push(this.hexToHSL(colors[0].color)[0]);
-        }
-        let colorArrLength = Math.abs(colors.length - updsvgcolor.length);
-        let incNum = 300;
-        for (let i = 0; i < colorArrLength; i++) {
-          let index = diffArr.indexOf(Math.min(...diffArr));
-          colors.splice(index + 1, 0, {
-            id: Date.now(),
-            color: colors[index].color,
-          });
-          diffArr[index] = incNum;
-          diffArr.splice(index + 1, 0, incNum++);
+        if (colors.length <= updsvgcolor.length) {
+          if (diffArr.length === 0) {
+            diffArr.push(this.hexToHSL(colors[0].color)[0]);
+          }
+          let colorArrLength = Math.abs(colors.length - updsvgcolor.length);
+          let incNum = 300;
+          for (let i = 0; i < colorArrLength; i++) {
+            let index = diffArr.indexOf(Math.min(...diffArr));
+            colors.splice(index + 1, 0, {
+              id: Date.now(),
+              color: colors[index].color,
+            });
+            diffArr[index] = incNum;
+            diffArr.splice(index + 1, 0, incNum++);
+          }
+        } else {
+          let colorArrLength = Math.abs(colors.length - updsvgcolor.length);
+          let incNum = 300;
+          for (let i = 0; i < colorArrLength; i++) {
+            let index = diffArr.indexOf(Math.min(...diffArr));
+            colors.splice(index + 1, 1);
+            diffArr.splice(index + 1, 1);
+            if (index + 1 !== colors.length - 1) {
+              diffArr.splice(
+                index,
+                1,
+                this.hexToHSL(colors[index].color)[0] -
+                  this.hexToHSL(colors[index + 1].color)[0]
+              );
+            }
+          }
         }
 
         for (let i = 0; i < colors.length; i++) {
-          let [h, s, l] = this.hexToHSL(updsvgcolor[i][0]);
+          let [, , l] = this.hexToHSL(updsvgcolor[i][0]);
           updsvgcolor[i][0] = this.hslToHex(
             this.hexToHSL(colors[i].color)[0],
             this.hexToHSL(colors[i].color)[1],
